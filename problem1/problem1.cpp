@@ -1,18 +1,27 @@
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <sstream> // string -> int.
 
-// Euler Problem 1.
-// Pushing for swapping between machines.
-// 'Mathier' solution? :
-// https://www.wolframalpha.com/input/?i=
-// 0%2C+3%2C+5%2C+6%2C+9%2C+10%2C+12%2C+1
-// 5%2C+18%2C+20%2C+21%2C+24%2C+25%2C+27%
-// 2C+30%2C+33%2C+35%2C+36%2C+39
+/**
+ * Euler Problem 1.
+ * (Pushing these problems for swapping between machines).
+ *
+ * Takes a single command line argument.
+ *   - int defining the max + 1 value.
+ *
+ * Tried determining if there was a pattern between the sequences
+ *   binary values (to see if a bitwise operation to traverse the set was possible.
+ *
+ * Also tried to see if there was some formula to calc the sum without iterating.
+ * Solution is currently just the entry level pseudo-code.
+ *
+ * 'Mathier' solution? :
+ *    https://www.wolframalpha.com/input/?i=
+ *    0%2C+3%2C+5%2C+6%2C+9%2C+10%2C+12%2C+1
+ *    5%2C+18%2C+20%2C+21%2C+24%2C+25%2C+27%
+ *    2C+30%2C+33%2C+35%2C+36%2C+39
+ */
 
-// nLimit(10) = sum(23)
-// nLimit(20) = sum(78)
-// nLimit(100) = sum(2318)
 int problem1(int limit) {
   int sum = 0;
   for(int i = 0; i < limit; ++i) {
@@ -35,3 +44,4 @@ int main(int argc, char** argv) {
   std::cout << problem1(limit) << std::endl;
   return(1);
 }
+
