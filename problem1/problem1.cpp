@@ -24,24 +24,37 @@
 
 int problem1(int limit) {
   int sum = 0;
-  for(int i = 0; i < limit; ++i) {
-    if(!(i % 3) || !(i % 5)) { // If divisible by 3 or 5.
-      sum += i;
+  for(int n = 0; n < limit; ++n) {
+    if(!(n % 3) || !(n % 5)) { // If divisible by 3 or 5.
+      sum += n;
     }
   }
   return(sum);
 }
 
-int main(int argc, char** argv) {
-  int limit = 1000; // Default.
+int problem1_2(int n, int limit, int sum) {
+  if (n < limit) {
+    if(!(n % 3) || !(n % 5)) {
+      sum += n;
+    }
+    sum = problem1_2(++n, limit, sum);
+  }
+  return sum;
+}
 
+int main(int argc, char** argv) {
+  using std::cout;
+
+  int limit = 1000; // Default.
   if (argc >= 2) { // Allow 1 cmd line arg of max n value.
     std::stringstream limitStr(argv[1]);
     if (!(limitStr >> limit)) { // C++ string to int.
       limit = 1000; // Default.
     } // Else successfull conversion.
   }
-  std::cout << problem1(limit) << std::endl;
+  cout << "Standard: " << problem1(limit) << std::endl;
+  cout << "Recursive: " << problem1_2(0, limit, 0);
+  cout << std::endl;
   return(1);
 }
 
