@@ -1,15 +1,27 @@
 #include <iostream>
-static int limit = 10;
+#include <vector>
+
+// TODO: template argument so it doesn't need to explicitly be
+// a long long int?
+
+// static int limit = 10;
+
+std::vector<long long int> factors(long long int findFactor) {
+  std::vector<long long int> factorList;
+
+  for (long long int i = 0; i < findFactor; ++i) {
+    if (!findFactor % i) { // Factor (divides evenly).
+      factorList.push_back(i);
+    }
+  }
+
+  return factorList;
+}
 
 /**
- * Currently unsure of the best way to test this:
- *
- * "By taking any two primes and concatenating them in any order
- *   the result will always be prime."
- *
- * For now, will use all primes prior to the prime being tested.
+ * Determine if a number is prime.
  */
-bool isPrime(int val) {
+bool isPrime(long long int val) {
   bool prime = true;
   if (!(val % 1) && !(val % val)) { // Check 1
     for (int i = 2; i < val; ++i) {
