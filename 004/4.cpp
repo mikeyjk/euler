@@ -7,7 +7,8 @@ int main() {
     for (int y = x; y > 99; --y) {
       std::string product = std::to_string(x * y); // std >= c++11.
       std::string reverse(product.rbegin(), product.rend());
-      if (!product.compare(reverse)) {
+      // If equal back and forwards (palindrome check).
+      if (product.compare(reverse) == 0) {
         if (x * y > largest) {
           largest = x * y;
         }
